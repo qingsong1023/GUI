@@ -15,14 +15,14 @@ from keras.applications.resnet import preprocess_input as resnet_preprocess_inpu
 
 # 🔹 Google Drive 共享模型链接（替换 YOUR_MODEL_ID）
 MODEL_DRIVE_LINKS = {
-    "DenseNet121": "https://drive.google.com/uc?id=YOUR_DENSENET121_MODEL_ID",
-    "VGG16": "https://drive.google.com/uc?id=YOUR_VGG16_MODEL_ID",
-    "MobileNetV3Large": "https://drive.google.com/uc?id=YOUR_MOBILENETV3_MODEL_ID",
-    "ResNet101": "https://drive.google.com/uc?id=YOUR_RESNET101_MODEL_ID",
-    "ViT-B16": "https://drive.google.com/uc?id=YOUR_VIT_B16_MODEL_ID",
-    "ViT-B32": "https://drive.google.com/uc?id=YOUR_VIT_B32_MODEL_ID",
-    "ViT-L16": "https://drive.google.com/uc?id=YOUR_VIT_L16_MODEL_ID",
-    "ViT-L32": "https://drive.google.com/uc?id=YOUR_VIT_L32_MODEL_ID",
+    "DenseNet121": "https://drive.google.com/file/d/1a4-BPbaUn5PwqC1UpSGEPTFDPw400WAG/view?usp=drive_link",
+    "VGG16": "https://drive.google.com/file/d/1IQS_UDIrMB6lUKxPuIiPGJN7DEIJqvGE/view?usp=drive_link",
+    "MobileNetV3Large": "https://drive.google.com/file/d/1tcc6VreVeP1Vz9gefTOCgmxiFBTbPwas/view?usp=drive_link",
+    "ResNet101": "https://drive.google.com/file/d/1YI-Cw6FPPtfDmB-KSrhh-QoE6y9O_oWD/view?usp=drive_link",
+    "ViT-B16": "https://drive.google.com/file/d/1YvrE8oJe1jrwScXT1EN2QzfcXPo1n2i8/view?usp=drive_link",
+    "ViT-B32": "https://drive.google.com/file/d/19l5KrNrYdeV0juzzvAjRMAz67N18sOt_/view?usp=drive_link",
+    "ViT-L16": "https://drive.google.com/file/d/1c6-j4B_Jf2KSTu8IR3aZWKtzF6StzkoP/view?usp=drive_link",
+    "ViT-L32": "https://drive.google.com/file/d/1NHz4Wg2zO8N1H_0EIWXPvObdQdKguwFD/view?usp=drive_link",
 }
 
 MODEL_SAVE_PATH = "./models"
