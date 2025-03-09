@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import streamlit as st
 import tensorflow as tf
-import tensorflow_addons as tfa
 import gdown  # 用于从 Google Drive 下载模型
 import os
 from keras.models import load_model
@@ -12,6 +11,15 @@ from keras.applications.densenet import preprocess_input as densenet_preprocess_
 from keras.applications.vgg16 import preprocess_input as vgg16_preprocess_input
 from keras.applications.mobilenet_v3 import preprocess_input as mobilenet_v3_preprocess_input
 from keras.applications.resnet import preprocess_input as resnet_preprocess_input
+
+def focal_loss(gamma=2.0, alpha=0.25):
+    def loss(y_true, y_pred):
+        bce = tf.keras.losses.binary_crossentropy(y_true, y_pred)
+        y_pred = tf.clip_by_value(y_pred, 1e-7, 1 - 1e-7)
+        focal_weight = y_true * alpha + (1 - y_true) * (1 - alpha)
+        focal_factor = (1 - y_pred) ** gamma
+        return focal_weight * focal_factor * bce
+    return loss
 
 # 🔹 Google Drive 共享模型链接（替换 YOUR_MODEL_ID）
 MODEL_DRIVE_LINKS = {
@@ -42,9 +50,7 @@ def download_and_load_model(model_name):
         gdown.download(MODEL_DRIVE_LINKS[model_name], model_path, quiet=False)
 
     st.sidebar.success(f"Model {model_name} loaded successfully!")
-    model = load_model(model_path, custom_objects={
-        "SigmoidFocalCrossEntropy": tfa.losses.SigmoidFocalCrossEntropy
-    })
+    model = load_model(model_path, custom_objects={"SigmoidFocalCrossEntropy": focal_loss()})
     return model
 
 # 🔹 预处理函数
