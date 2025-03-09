@@ -37,15 +37,31 @@ def download_and_load_model(model_name):
     """从 Google Drive 下载模型并加载"""
     model_path = os.path.join(MODEL_SAVE_PATH, f"{model_name}.h5")
 
+    # ✅ 1. 如果模型文件不存在，则下载
     if not os.path.exists(model_path):
         st.sidebar.info(f"Downloading {model_name} model from Google Drive...")
-        gdown.download(MODEL_DRIVE_LINKS[model_name], model_path, quiet=False)
+        try:
+            gdown.download(MODEL_DRIVE_LINKS[model_name], model_path, quiet=False)
+        except Exception as e:
+            st.error(f"Error downloading {model_name}: {e}")
+            return None
+
+    # ✅ 2. 确保下载成功，避免加载损坏的文件
+    if not os.path.exists(model_path) or os.path.getsize(model_path) < 1000:
+        st.error(f"Error: {model_name}.h5 is missing or corrupted. Try re-uploading it to Google Drive.")
+        return None
 
     st.sidebar.success(f"Model {model_name} loaded successfully!")
-    model = load_model(model_path, custom_objects={
-        "SigmoidFocalCrossEntropy": tfa.losses.SigmoidFocalCrossEntropy
-    })
-    return model
+
+    # ✅ 3. 加载模型
+    try:
+        model = load_model(model_path, custom_objects={
+            "SigmoidFocalCrossEntropy": tfa.losses.SigmoidFocalCrossEntropy
+        })
+        return model
+    except Exception as e:
+        st.error(f"Error loading {model_name}: {e}")
+        return None
 
 # 🔹 预处理函数
 def vit_preprocess_input(img_array):
