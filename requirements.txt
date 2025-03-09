@@ -1,0 +1,9 @@
+gdown
+tensorflow==2.14.0
+tensorflow-addons==0.22.0
+vit-keras
+numpy==1.26.4
+streamlit
+pillow
+protobuf==4.23
+opencv-python
