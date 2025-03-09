@@ -13,16 +13,15 @@ from keras.applications.vgg16 import preprocess_input as vgg16_preprocess_input
 from keras.applications.mobilenet_v3 import preprocess_input as mobilenet_v3_preprocess_input
 from keras.applications.resnet import preprocess_input as resnet_preprocess_input
 
-# 🔹 Google Drive 共享模型链接（替换 YOUR_MODEL_ID）
 MODEL_DRIVE_LINKS = {
-    "DenseNet121": "https://drive.google.com/file/d/1a4-BPbaUn5PwqC1UpSGEPTFDPw400WAG/view?usp=drive_link",
-    "VGG16": "https://drive.google.com/file/d/1IQS_UDIrMB6lUKxPuIiPGJN7DEIJqvGE/view?usp=drive_link",
-    "MobileNetV3Large": "https://drive.google.com/file/d/1tcc6VreVeP1Vz9gefTOCgmxiFBTbPwas/view?usp=drive_link",
-    "ResNet101": "https://drive.google.com/file/d/1YI-Cw6FPPtfDmB-KSrhh-QoE6y9O_oWD/view?usp=drive_link",
-    "ViT-B16": "https://drive.google.com/file/d/1YvrE8oJe1jrwScXT1EN2QzfcXPo1n2i8/view?usp=drive_link",
-    "ViT-B32": "https://drive.google.com/file/d/19l5KrNrYdeV0juzzvAjRMAz67N18sOt_/view?usp=drive_link",
-    "ViT-L16": "https://drive.google.com/file/d/1c6-j4B_Jf2KSTu8IR3aZWKtzF6StzkoP/view?usp=drive_link",
-    "ViT-L32": "https://drive.google.com/file/d/1NHz4Wg2zO8N1H_0EIWXPvObdQdKguwFD/view?usp=drive_link",
+    "DenseNet121": "https://drive.google.com/uc?id=1a4-BPbaUn5PwqC1UpSGEPTFDPw400WAG",
+    "VGG16": "https://drive.google.com/uc?id=1IQS_UDIrMB6lUKxPuIiPGJN7DEIJqvGE",
+    "MobileNetV3Large": "https://drive.google.com/uc?id=1tcc6VreVeP1Vz9gefTOCgmxiFBTbPwas",
+    "ResNet101": "https://drive.google.com/uc?id=1YI-Cw6FPPtfDmB-KSrhh-QoE6y9O_oWD",
+    "ViT-B16": "https://drive.google.com/uc?id=1YvrE8oJe1jrwScXT1EN2QzfcXPo1n2i8",
+    "ViT-B32": "https://drive.google.com/uc?id=19l5KrNrYdeV0juzzvAjRMAz67N18sOt_",
+    "ViT-L16": "https://drive.google.com/uc?id=1c6-j4B_Jf2KSTu8IR3aZWKtzF6StzkoP",
+    "ViT-L32": "https://drive.google.com/uc?id=1NHz4Wg2zO8N1H_0EIWXPvObdQdKguwFD",
 }
 
 MODEL_SAVE_PATH = "./models"
