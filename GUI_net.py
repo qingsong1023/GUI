@@ -50,7 +50,7 @@ def download_and_load_model(model_name):
         gdown.download(MODEL_DRIVE_LINKS[model_name], model_path, quiet=False)
 
     st.sidebar.success(f"Model {model_name} loaded successfully!")
-    model = load_model(model_path, custom_objects={"SigmoidFocalCrossEntropy": focal_loss()})
+    model = load_model(model_path, custom_objects={"focal_loss": focal_loss()})
     return model
 
 # 🔹 预处理函数
