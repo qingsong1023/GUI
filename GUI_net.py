@@ -5,8 +5,8 @@ import numpy as np
 import streamlit as st
 import tensorflow as tf
 import tensorflow_addons as tfa
-from keras.models import load_model
-from keras.preprocessing import image
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
 from vit_keras import vit
 from keras.applications.densenet import preprocess_input as densenet_preprocess_input
 from keras.applications.vgg16 import preprocess_input as vgg16_preprocess_input
