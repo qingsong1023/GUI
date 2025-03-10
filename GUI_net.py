@@ -222,7 +222,7 @@ def overlay_heatmap(uploaded_file, heatmap, alpha=0.4):
 # 8. Streamlit UI
 st.title("Chest X-ray Disease Classification & Visualization")
 st.sidebar.header("Model Selection")
-selected_model = st.sidebar.selectbox("Choose a model:", list(MODEL_SAVE_PATH.keys()))
+selected_model = st.sidebar.selectbox("Choose a model:", list(MODEL_DRIVE_LINKS.keys()))
 
 model = load_selected_model(selected_model)
 st.sidebar.success(f"Loaded model: {selected_model}")
