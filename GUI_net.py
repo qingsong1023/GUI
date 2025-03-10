@@ -236,7 +236,7 @@ if uploaded_file is not None:
 
     img_array = preprocess_input_image(img_array, selected_model)
     predictions = model.predict(img_array)[0]
-    st.image(img, caption="Uploaded Chest X-ray", use_container_width=True)
+    st.image(img, caption="Uploaded Chest X-ray", use_column_width=True)
 
     st.subheader("Prediction Results")
     for i, label in enumerate(LABELS):
@@ -251,4 +251,4 @@ if uploaded_file is not None:
 
     if heatmap is not None:
         overlayed_img = overlay_heatmap(uploaded_file, heatmap)
-        st.image(overlayed_img, caption="Heatmap", use_container_width=True)
+        st.image(overlayed_img, caption="Heatmap", use_column_width=True)
